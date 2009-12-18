@@ -1,0 +1,8 @@
+<?php if($this->formErrors != null): ?>
+<div id='formErrors'>
+<?php foreach($this->formErrors as $error): print $error; ?>
+	<br>
+<?php endforeach; ?>
+</div>
+<?php endif; ?>
+<?php print $this->form; ?>
