@@ -1,0 +1,25 @@
+<?php if($this->formErrors != null): ?>
+<div id='formErrors'>
+<?php foreach($this->formErrors as $error): print $error; ?>
+	<br>
+<?php endforeach; ?>
+</div>
+<?php endif; ?>
+
+<?php print $this->form ?>
+<script language='Javascript'>
+	/**
+	 *
+	 * @access public
+	 * @return void
+	 **/
+	function markRequiredLabels(){
+		$(document).ready(function(){
+			$('label.required').append(": <span class='requiredField'>*</span>");
+			$('label.required').each(function(index,el){
+
+			});
+		});
+	}
+	markRequiredLabels()
+</script>

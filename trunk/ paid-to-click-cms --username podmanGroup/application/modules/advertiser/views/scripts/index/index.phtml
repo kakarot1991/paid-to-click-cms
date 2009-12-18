@@ -1,0 +1,10 @@
+<?php if($this->advertiser != null): ?>
+<dl>
+<?php foreach($this->advertiser as $field=>$value): ?>
+	<dt id="advertiserDetailsField-<?php print $field; ?>" class='advertiserDetailsField'><?php print $field; ?></dt>
+	<dd><?php print $value; ?></dd>
+<?php endforeach; ?>
+</dl>
+<?php endif; ?>
+
+<a href="/advertiser/update">Update details</a>
