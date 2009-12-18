@@ -1,0 +1,10 @@
+<?php if($this->user != null): ?>
+<dl>
+<?php foreach($this->user as $field=>$value): ?>
+	<dt id="userDetailsField-<?php print $field; ?>" class='userDetailsField'><?php print $field; ?></dt>
+	<dd><?php print $value; ?></dd>
+<?php endforeach; ?>
+</dl>
+<?php endif; ?>
+
+<a href="/user/update">Update details</a>

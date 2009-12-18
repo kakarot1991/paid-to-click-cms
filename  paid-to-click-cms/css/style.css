@@ -1,0 +1,23 @@
+span.requiredField {
+	color:red;
+}
+dd {
+	margin-left:0px;
+}
+
+ul.errors {
+	list-style-type:none;
+	margin-left:0px;
+	padding-left:0px;
+	color:red;
+}
+div#formErrors {
+color:red;
+}
+select,input {
+width:200px;
+}
+
+dt.userDetailsField {
+font-size:24px;
+}
