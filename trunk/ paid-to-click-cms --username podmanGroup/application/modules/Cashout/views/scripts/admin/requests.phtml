@@ -1,0 +1,25 @@
+<table>
+    <tr>
+        <th>User</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Action</th>
+    </tr>
+<?php foreach($this->cashouts as $cashout): ?>
+    <tr>
+        <td><?php print $cashout->nonStoreableData; ?></td>
+        <td><?php print $cashout->amount; ?></td>
+        <td><?php print $cashout->startDate; ?></td>
+        <td>
+            <a href="/cashout/admin/approve/user/<?php print $cashout->ownerID; ?>">
+                Approve
+            </a>
+        </td>
+        <td>
+            <a href="/cashout/admin/deny/user/<?php print $cashout->ownerID; ?>">
+                Deny
+            </a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>

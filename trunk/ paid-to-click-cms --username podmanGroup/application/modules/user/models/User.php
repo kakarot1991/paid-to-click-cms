@@ -1,31 +1,11 @@
 <?php
 
-class User_Models_User extends Accounts_Account {
+class User_Models_User extends Account_Models_Account {
 	/**
 	* The table in database that users are stored
 	* @name USER_TABLE
 	*/
 	const USER_TABLE = 'users';
-
-	/**
-	 * The user couldn't be logged in because either username or password was incorrect
-	 * Or The user doesn't exist in the database
-	 * @name INVALID_LOGIN
-	 */
-
-	const INVALID_LOGIN = 'Incorrect username and/or password';
-
-	/**
-	 * The user has been banned or the IP address the user is coming from is in the ban list
-	 * @name BANNED
-	 */
-	const BANNED = 'You have been banned';
-
-	/**
-	 * The operation was a success
-	 * @name BANNED
-	 */
-	const SUCCESS = 'SUCCESS';
 
 	/**
 	 * The user cannot be registered because some of fields are already in use
@@ -39,7 +19,7 @@ class User_Models_User extends Accounts_Account {
 	private $referer;
 	private $roleID;
 	private $origattrs = array();
-	private $errors = array();
+       //private $errors = array();
 
 	/**
 	* Creates a new user using the keys and values from the array in its parameters
@@ -85,6 +65,14 @@ class User_Models_User extends Accounts_Account {
 		return false;
 	}
 
+        static function getUser($userID) {
+            $db = Zend_Registry::get('db');
+            $stat = $db->query("SELECT * FROM " . self::USER_TABLE . " WHERE accountID = ?", array($userID));
+            $row = $stat->fetch();
+            //create and return the new user
+            return new User_Models_User($row);
+        }
+
 	/**
 	* Attempts to login in the user
 	* If the visitor cannot be logged in due to no exist username or invalid username and password
@@ -96,6 +84,7 @@ class User_Models_User extends Accounts_Account {
 	*/
 	static function login($username, $password) {
 		$db = Zend_Registry::get('db');
+
 		$stat = $db->query("SELECT * FROM " . self::USER_TABLE . " WHERE username = ? AND PASSWORD = ? AND status <> ?", array($username,$password, 'advertiser'));
 		$row = $stat->fetch();
 
@@ -105,7 +94,7 @@ class User_Models_User extends Accounts_Account {
 		}
 
 		//check if the user has been self::BANNED
-		if($row['status'] == 'self::BANNED') {
+		if($row['status'] == self::BANNED) {
 			$this->errors[]= $row['banReason'];
 			return self::BANNED;
 		}
@@ -161,4 +150,5 @@ class User_Models_User extends Accounts_Account {
 	}
 
 }
+
 ?>

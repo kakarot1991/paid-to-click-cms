@@ -15,7 +15,7 @@
 class User_Models_Forms_Validators_IsUnique extends Zend_Validate_Abstract {
 
 	const MSG_INVALID = '';
-	private $type;
+	private $type;//This is the field type to validate which corresponds to a validation function
 	protected $_messageTemplates = array(
 	    self::MSG_INVALID => 'This %s is already in use'
 	);

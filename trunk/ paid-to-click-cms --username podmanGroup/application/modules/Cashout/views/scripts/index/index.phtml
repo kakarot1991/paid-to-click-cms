@@ -1,0 +1,11 @@
+<?php if($this->cashout_failedMinimum) : ?>
+Sorry you to have the minimum balance of <?php print $this->cashout_minimum; ?>
+before cashing out
+<?php elseif($this->cashout_showConfirmation) : ?>
+Your cashout request has been logged and waiting approval from the administrator
+<?php else : ?>
+This will move your balance to the payment gateway
+<form method="POST">
+    <input type="submit" value="Cashout" />
+</form>
+<?php endif ?>

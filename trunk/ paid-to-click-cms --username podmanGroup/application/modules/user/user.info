@@ -1,0 +1,4 @@
+name = user
+description = Represents users on the system
+category = Core
+version = 0.1

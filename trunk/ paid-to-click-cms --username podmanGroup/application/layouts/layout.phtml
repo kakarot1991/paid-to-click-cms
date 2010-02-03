@@ -5,14 +5,17 @@
         <script language='Javascript' src='/js/jquery-1.3.2.js'></script>
     </head>
     <body>
+    	<div id="navigation">
+    		<?php print $this->navigation()->menu(); ?>
+		</div>
     	<div id='content'>
-        	<?php print $this->layout()->content ?>
+    		<?php print $this->layout()->content ?>
         </div>
     </body>
 
     <!-- don't forget to put into a script file later -->
     <script>
     //truely center the content div
-    $('#content')[0].style.width = screen.width / 2;
+    //$('#content')[0].style.width = screen.width / 2;
 	</script>
 </html>

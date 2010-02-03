@@ -19,8 +19,9 @@ class User_LoginController extends Zend_Controller_Action {
 	}
 
 	public function indexAction() {
+		//require_once("User/Models/Forms/Login.php");
+		//$user = new User_Models_User(array());
 		$form = new User_Models_Forms_Login();
-
 		$session = new Zend_Session_Namespace('user');
 		if($session->user != NULL) {
 			$this->view->formErrors = array(self::LOGGED_IN_ALREADY);
@@ -28,8 +29,6 @@ class User_LoginController extends Zend_Controller_Action {
 			//Zend_Session::destroy();
 			return;
 		}
-
-
 
 		if($this->getRequest()->isPost()) {
 			if($form->isValid($_POST)){
@@ -42,6 +41,9 @@ class User_LoginController extends Zend_Controller_Action {
 						print 'setting session...<br>';
 						$session = new Zend_Session_Namespace('user');
 						$session->user = $user;
+						//$role = User_Models_Role::getRoleById($user->roleID);
+						$session->user->role = User_Models_Role::getRoleById($user->roleID);
+						//var_dump($role);
 						print 'session established...<br>';
 						return;
 					}

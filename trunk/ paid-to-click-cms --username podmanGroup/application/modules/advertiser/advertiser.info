@@ -1,0 +1,4 @@
+name = advertiser
+description = Represents advertisers on the system
+category = Core
+version = 0.1
