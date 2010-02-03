@@ -1,0 +1,4 @@
+<?php foreach($this->adverts as $advert):
+	for($i = 0; $i < $advert->display; $i++) : ?>
+<a href='/advert/view/<?php print $advert->advertID; ?>'><?php print $advert->title; ?></a><br>
+<?php endfor;endforeach ?>

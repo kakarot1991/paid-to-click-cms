@@ -1,0 +1,4 @@
+name = advert
+description = Represents advert on the system
+category = Core
+version = 0.1

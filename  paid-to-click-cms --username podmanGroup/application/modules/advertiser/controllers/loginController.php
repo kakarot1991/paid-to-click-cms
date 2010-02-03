@@ -30,6 +30,7 @@ class Advertiser_LoginController extends Zend_Controller_Action {
 				else{
 					$session = new Zend_Session_Namespace('advertiser');
 					$session->advertiser = $advertiser;
+					$session->advertiser->adverts = Advert_Models_Advert::getAdvertisersAds($session->advertiser->accountID);
 					$this->_redirect('/advertiser');
 					return;
 				}

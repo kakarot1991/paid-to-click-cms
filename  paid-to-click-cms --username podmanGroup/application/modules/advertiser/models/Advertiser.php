@@ -7,7 +7,7 @@
  * @copyright 2009
  */
 
-class  Advertiser_Models_Advertiser extends Accounts_Account {
+class  Advertiser_Models_Advertiser extends Account_Models_Account {
 	const ADVERTISER_TABLE = 'users';
 
 	/**

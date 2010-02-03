@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<navigation>
+	<home>
+		<label>Home</label>
+		<uri>/</uri>
+	</home>
+	<Logout>
+		<label>Logout</label>
+		<uri>/logout</uri>
+	</Logout>
+	<Login>
+		<label>Login</label>
+		<uri>/login</uri>
+	</Login>
+</navigation>

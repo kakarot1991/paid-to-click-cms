@@ -18,9 +18,8 @@ class advertiser_IndexController extends Zend_Controller_Action {
 			$this->_redirect('/advertiser/login');
 			return;
 		}
-
+		$this->view->adverts = $session->advertiser->adverts;
 		$this->view->advertiser = $session->advertiser->render();
-
 	}
 }
 ?>
